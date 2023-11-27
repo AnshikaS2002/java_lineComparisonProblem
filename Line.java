@@ -1,4 +1,4 @@
-public class Line {
+public class Line implements Comparable<Line> {
     Point p1;
     Point p2;
 
@@ -19,6 +19,16 @@ public class Line {
             return false;
         Line line = (Line) obj;
         return (findLength() == line.findLength());
+    }
+
+    @Override
+    public int compareTo(Line line) {
+        if (this.findLength() == line.findLength())
+            return 0;
+        else if (this.findLength() < line.findLength())
+            return -1;
+        else
+            return 1;
     }
 
 }
